@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewPrep AI - Resume-Based Interview Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="content-wrapper">
+        <header>
+            <div class="container">
+                <div class="header-bubbles">
+                    <div class="bubble bubble-1"></div>
+                    <div class="bubble bubble-2"></div>
+                    <div class="bubble bubble-3"></div>
+                    <div class="bubble bubble-4"></div>
+                </div>
+                <h1>InterviewPrep AI</h1>
+                <p>Upload your resume and get personalized interview preparation</p>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="upload-section">
+                <div class="upload-box">
+                    <h2>Get Started</h2>
+                    <p>Upload your resume and enter the position you're applying for</p>
+                    
+                    <form id="resumeForm">
+                        <div class="form-group">
+                            <label for="position">Position Applied For:</label>
+                            <input type="text" id="position" placeholder="e.g. Help Desk Technician" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="resumeFile">Upload Resume (PDF or DOCX):</label>
+                            <div class="file-upload">
+                                <input type="file" id="resumeFile" accept=".pdf,.docx" required>
+                                <label for="resumeFile" class="file-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Choose a file</span>
+                                </label>
+                                <span id="fileName">No file chosen</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="experienceLevel">Your Experience Level:</label>
+                            <select id="experienceLevel" required>
+                                <option value="">Select experience level</option>
+                                <option value="entry">Entry Level (0-2 years)</option>
+                                <option value="mid">Mid Level (3-5 years)</option>
+                                <option value="senior">Senior Level (6+ years)</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" id="generateBtn" class="btn-primary">
+                            <span id="btnText">Generate Questions</span>
+                            <div id="loader" class="loader"></div>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h2>Your Personalized Interview Preparation</h2>
+                </div>
+                
+                <div class="results-container">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="technical">Technical Questions</button>
+                        <button class="tab-btn" data-tab="behavioral">Behavioral Questions</button>
+                        <button class="tab-btn" data-tab="situational">Situational Questions</button>
+                        <button class="tab-btn" data-tab="practice">Practice Test</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="technical">
+                        <div class="questions-container" id="technicalQuestions"></div>
+                    </div>
+                    
+                    <div class="tab-content" id="behavioral">
+                        <div class="questions-container" id="behavioralQuestions"></div>
+                    </div>
+                    
+                    <div class="tab-content" id="situational">
+                        <div class="questions-container" id="situationalQuestions"></div>
+                    </div>
+                    
+                    <div class="tab-content" id="practice">
+                        <div class="practice-container" id="practiceTest">
+                            <div class="practice-instructions">
+                                <h3>Practice Interview Test</h3>
+                                <p>Answer these questions and get AI feedback on your responses</p>
+                            </div>
+                            <div class="practice-questions" id="practiceQuestions"></div>
+                            <div class="feedback-section" id="feedbackSection" style="display: none;">
+                                <h4>AI Feedback on Your Answer:</h4>
+                                <div class="feedback-content" id="feedbackContent"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="download-options">
+                    <button id="downloadPdf" class="btn-secondary">
+                        <i class="fas fa-file-pdf"></i> Download as PDF
+                    </button>
+                    <button id="downloadDocx" class="btn-secondary">
+                        <i class="fas fa-file-word"></i> Download as DOCX
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>© 2025 InterviewPrep AI. Uses AI technology to help you prepare.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.0/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
