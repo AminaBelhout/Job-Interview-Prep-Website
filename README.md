@@ -24,3 +24,4 @@ Clone the repo
 Open index.html in your browser
 
 Use it right away — no setup needed
+![lllll](https://github.com/user-attachments/assets/fa946c29-3d20-41f9-89df-8e7caaec7e71)
